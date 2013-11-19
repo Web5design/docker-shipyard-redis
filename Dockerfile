@@ -6,5 +6,6 @@ run wget http://download.redis.io/releases/redis-2.6.16.tar.gz -O /tmp/redis.tar
 run (cd /tmp && tar zxf redis.tar.gz && cd redis-* && make install && cp redis.conf sentinel.conf /etc/)
 run rm -rf /tmp/*
 expose 6379
+volume /var/lib/redis
 entrypoint ["/usr/local/bin/redis-server"]
 cmd ["/etc/redis.conf"]
