@@ -7,5 +7,6 @@ run (cd /tmp && tar zxf redis.tar.gz && cd redis-* && make install && cp redis.c
 run rm -rf /tmp/*
 expose 6379
 volume /var/lib/redis
+workdir /var/lib/redis
 entrypoint ["/usr/local/bin/redis-server"]
 cmd ["/etc/redis.conf"]
